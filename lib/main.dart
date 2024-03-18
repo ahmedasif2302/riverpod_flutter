@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_test/api/post_services.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    const ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -40,8 +45,6 @@ class _MyHomeState extends State<MyHome> {
     loadPosts(page);
     _scrollController.addListener(_loadMoreData);
   }
-
-  void loadMore() async {}
 
   loadPosts(size) async {
     setState(() {

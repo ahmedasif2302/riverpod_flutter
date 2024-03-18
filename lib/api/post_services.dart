@@ -7,7 +7,7 @@ class PostSerivce {
   Future<List<Map<String, dynamic>>> getAllPosts(int? page) async {
     try {
       http.Response response = await http.get(Uri.parse(
-          '${ApiServices.baseUrl + ApiServices.posts}?_start=$page&_limit=6'));
+          '${ApiServices.baseUrl + ApiServices.posts}?_start=$page&_limit=10'));
       if (response.statusCode == 200) {
         var data = jsonDecode(response.body);
         return List<Map<String, dynamic>>.from(data);
